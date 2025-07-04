@@ -96,44 +96,61 @@ namespace Assignment05
         //    Console.WriteLine($"Is the number {number} prime? {result}");
         //} 
         #endregion
-        public static int[] MaxMinArray(ref int[] arr)
+        #region EX06
+        //public static int[] MaxMinArray(ref int[] arr)
+        //{
+        //    int min = arr[0];
+        //    int max = arr[0];
+        //    for (int i = 1; i < arr.Length; i++)
+        //    {
+        //        if (arr[i] < min)
+        //        {
+        //            min = arr[i];
+        //        }
+
+        //    }
+        //    for (int i = 1; i < arr.Length; i++)
+
+        //    {    if (arr[i] > max)
+        //        {
+        //            max = arr[i];
+        //        }
+
+        //    }
+
+        //    return new int[] { min, max };
+
+        //}
+        //static void Main(string[] args)
+        //{ int i = 0;
+        //    int[] numbers = new int[5];
+        //    do
+        //    {
+        //        Console.Write($"Enter the number of elements in the array #{i + 1} : ");
+
+        //        numbers[i] = Convert.ToInt32(Console.ReadLine());
+        //        i++;
+        //    } while (i < numbers.Length);
+        //  int[] result = MaxMinArray(ref numbers);
+        //        Console.WriteLine($"Minimum  is {result[0]}  , Maximum is  {result[1]}");
+        //    } 
+        #endregion
+        public static int CalculateFactorial(int number)
         {
-            int min = arr[0];
-            int max = arr[0];
-            for (int i = 1; i < arr.Length; i++)
+            int factorial = 1;
+            for (int i = 1; i <= number; i++)
             {
-                if (arr[i] < min)
-                {
-                    min = arr[i];
-                }
-               
+                factorial *= i;
             }
-            for (int i = 1; i < arr.Length; i++)
-
-            {    if (arr[i] > max)
-                {
-                    max = arr[i];
-                }
-           
-            }
-
-            return new int[] { min, max };
-
+       return factorial;
         }
-        static void Main(string[] args)
-        { int i = 0;
-            int[] numbers = new int[5];
-            do
-            {
-                Console.Write($"Enter the number of elements in the array #{i + 1} : ");
-
-                numbers[i] = Convert.ToInt32(Console.ReadLine());
-                i++;
-            } while (i < numbers.Length);
-          int[] result = MaxMinArray(ref numbers);
-                Console.WriteLine($"Minimum  is {result[0]}  , Maximum is  {result[1]}");
-            }
-
+         static void Main(string[] args)
+        {
+            Console.Write("enter the number : ");
+            int.TryParse(Console.ReadLine(), out int number);
+            int factorial = CalculateFactorial(number);
+            Console.WriteLine($" factorial is :{factorial}");
         }
     }
+ }
 
