@@ -1,4 +1,6 @@
-﻿namespace Assignment05
+﻿using static System.Runtime.InteropServices.JavaScript.JSType;
+
+namespace Assignment05
 {
     internal class Program
     {
@@ -28,16 +30,33 @@
         //    Console.WriteLine($"a = {a}, b = {b}");
         //}
         #endregion
-       public static void SimpleOperation(int x, int y, out int sum, out int sub)
+        #region EX03
+        //public static void SimpleOperation(int x, int y, out int sum, out int sub)
+        // {
+        //     sum = x + y;
+        //     sub = x - y;
+        // }
+        // static void Main(string[] args)
+        // {
+        //     int a = 5, b = 7;
+        //     SimpleOperation(a, b, out int sum, out int sub);
+        //     Console.WriteLine($"a = {a}, b = {b}, sum = {sum}, product = {sub}");
+        // }  
+        #endregion
+        public static int Summation(int number)
         {
-            sum = x + y;
-            sub = x - y;
+
+            int dividor = number / 10;
+            int minder = number % 10;
+            int sum = dividor + minder;
+            return sum;
         }
         static void Main(string[] args)
         {
-            int a = 5, b = 7;
-            SimpleOperation(a, b, out int sum, out int sub);
-            Console.WriteLine($"a = {a}, b = {b}, sum = {sum}, product = {sub}");
-        } 
+            Console.Write("Enter the number : ");
+            int.TryParse(Console.ReadLine(), out int number);
+            int result = Summation(number);
+            Console.WriteLine($"The sum of the digits is : {result}");
+        }
     }
 }
