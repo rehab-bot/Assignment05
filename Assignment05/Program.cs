@@ -1,4 +1,5 @@
-﻿using static System.Runtime.InteropServices.JavaScript.JSType;
+﻿using System.Globalization;
+using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace Assignment05
 {
@@ -60,38 +61,79 @@ namespace Assignment05
         //    Console.WriteLine($"The sum of the digits is : {result}");
         //} 
         #endregion
-        public static bool IsPrime(int number)
-        {
-            if (number <= 1)
-                return false;
-            else if (number == 2)
-                return true;
-            else if (number % 2 == 1)
-            {
-                for (int i = 2; i <= Math.Sqrt(number); i++)
-                {
-                    if (number % i == 0)
+        #region EX05
+        //public static bool IsPrime(int number)
+        //{
+        //    if (number <= 1)
+        //        return false;
+        //    else if (number == 2)
+        //        return true;
+        //    else if (number % 2 == 1)
+        //    {
+        //        for (int i = 2; i <= Math.Sqrt(number); i++)
+        //        {
+        //            if (number % i == 0)
 
-                        return false;
+        //                return false;
+        //        }
+        //        return true;
+        //    }
+        //    else
+        //        return false;
+
+        //}
+        //static void Main(string[] args)
+        //{    
+        //    int number;
+        //    bool isparsed;
+        //    do
+
+        //    {
+        //        Console.Write("Enter a number to check if it is prime: ");
+        //      isparsed =  int.TryParse(Console.ReadLine(), out  number);
+        //    } while (!isparsed);
+        //    bool result = IsPrime(number);
+        //    Console.WriteLine($"Is the number {number} prime? {result}");
+        //} 
+        #endregion
+        public static int[] MaxMinArray(ref int[] arr)
+        {
+            int min = arr[0];
+            int max = arr[0];
+            for (int i = 1; i < arr.Length; i++)
+            {
+                if (arr[i] < min)
+                {
+                    min = arr[i];
                 }
-                return true;
+               
             }
-            else
-                return false;
+            for (int i = 1; i < arr.Length; i++)
+
+            {    if (arr[i] > max)
+                {
+                    max = arr[i];
+                }
+           
+            }
+
+            return new int[] { min, max };
 
         }
         static void Main(string[] args)
-        {    
-            int number;
-            bool isparsed;
+        { int i = 0;
+            int[] numbers = new int[5];
             do
-              
             {
-                Console.Write("Enter a number to check if it is prime: ");
-              isparsed =  int.TryParse(Console.ReadLine(), out  number);
-            } while (!isparsed);
-            bool result = IsPrime(number);
-            Console.WriteLine($"Is the number {number} prime? {result}");
+                Console.Write($"Enter the number of elements in the array #{i + 1} : ");
+
+                numbers[i] = Convert.ToInt32(Console.ReadLine());
+                i++;
+            } while (i < numbers.Length);
+          int[] result = MaxMinArray(ref numbers);
+                Console.WriteLine($"Minimum  is {result[0]}  , Maximum is  {result[1]}");
+            }
+
         }
     }
-}
+
