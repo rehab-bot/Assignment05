@@ -135,22 +135,56 @@ namespace Assignment05
         //        Console.WriteLine($"Minimum  is {result[0]}  , Maximum is  {result[1]}");
         //    } 
         #endregion
-        public static int CalculateFactorial(int number)
+        #region EX07
+        // public static int CalculateFactorial(int number)
+        // {
+        //     int factorial = 1;
+        //     for (int i = 1; i <= number; i++)
+        //     {
+        //         factorial *= i;
+        //     }
+        //return factorial;
+        // }
+        //  static void Main(string[] args)
+        // {
+        //     Console.Write("enter the number : ");
+        //     int.TryParse(Console.ReadLine(), out int number);
+        //     int factorial = CalculateFactorial(number);
+        //     Console.WriteLine($" factorial is :{factorial}");
+        // } 
+        #endregion
+        public static string  ChangeChar(string s , int position , char ch )
         {
-            int factorial = 1;
-            for (int i = 1; i <= number; i++)
+           if (position < 0 || position >s.Length)
             {
-                factorial *= i;
+                Console.WriteLine("Invalid position");
+               
             }
-       return factorial;
+            char[] charArray = s.ToCharArray();
+            charArray[position] = ch;
+            return new string(charArray);
         }
-         static void Main(string[] args)
-        {
-            Console.Write("enter the number : ");
-            int.TryParse(Console.ReadLine(), out int number);
-            int factorial = CalculateFactorial(number);
-            Console.WriteLine($" factorial is :{factorial}");
+        static void Main(string[] args)
+        { 
+           
+           
+            Console.WriteLine(" Enter the string :");
+            string s = Console.ReadLine();
+
+
+            Console.Write("Enter the position (0-based): ");
+            int position = Convert.ToInt32(Console.ReadLine());
+
+            Console.Write("Enter a character: ");
+            char ch = Convert.ToChar(Console.ReadLine());
+
+
+
+
+            string result = ChangeChar(s, position, ch);
+
+            Console.WriteLine($"Result:  { result}");
+
         }
     }
- }
-
+}
