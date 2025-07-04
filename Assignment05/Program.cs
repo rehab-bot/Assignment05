@@ -43,20 +43,55 @@ namespace Assignment05
         //     Console.WriteLine($"a = {a}, b = {b}, sum = {sum}, product = {sub}");
         // }  
         #endregion
-        public static int Summation(int number)
-        {
+        #region EX04
+        //public static int Summation(int number)
+        //{
 
-            int dividor = number / 10;
-            int minder = number % 10;
-            int sum = dividor + minder;
-            return sum;
+        //    int dividor = number / 10;
+        //    int minder = number % 10;
+        //    int sum = dividor + minder;
+        //    return sum;
+        //}
+        //static void Main(string[] args)
+        //{
+        //    Console.Write("Enter the number : ");
+        //    int.TryParse(Console.ReadLine(), out int number);
+        //    int result = Summation(number);
+        //    Console.WriteLine($"The sum of the digits is : {result}");
+        //} 
+        #endregion
+        public static bool IsPrime(int number)
+        {
+            if (number <= 1)
+                return false;
+            else if (number == 2)
+                return true;
+            else if (number % 2 == 1)
+            {
+                for (int i = 2; i <= Math.Sqrt(number); i++)
+                {
+                    if (number % i == 0)
+
+                        return false;
+                }
+                return true;
+            }
+            else
+                return false;
+
         }
         static void Main(string[] args)
-        {
-            Console.Write("Enter the number : ");
-            int.TryParse(Console.ReadLine(), out int number);
-            int result = Summation(number);
-            Console.WriteLine($"The sum of the digits is : {result}");
+        {    
+            int number;
+            bool isparsed;
+            do
+              
+            {
+                Console.Write("Enter a number to check if it is prime: ");
+              isparsed =  int.TryParse(Console.ReadLine(), out  number);
+            } while (!isparsed);
+            bool result = IsPrime(number);
+            Console.WriteLine($"Is the number {number} prime? {result}");
         }
     }
 }
